@@ -6,6 +6,7 @@ files = [
     ('file', ('file', open('ArquivoTeste2.pdf', 'rb'), 'application/octet-stream'))
 ]
 headers = {
+
     'x-api-key': 'sec_xxxxxxxxx'
 }
 
