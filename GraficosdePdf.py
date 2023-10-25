@@ -43,10 +43,10 @@ def chama_grafico_correspondente(tipo_grafico, dados):
         plot_plot_type(dados)
 
 files = [
-    ('file', ('file', open('ArquivoTeste3.pdf', 'rb'), 'application/octet-stream'))
+    ('file', ('file', open('XXXXXXX.pdf', 'rb'), 'application/octet-stream'))
 ]
 headers = {
-    'x-api-key': 'sec_xxxxxxxxxx'
+    'x-api-key': 'sec_xxxxxxxxxxxx'
 }
 
 
@@ -66,7 +66,7 @@ data = {
     'messages': [
         {
             'role': "user",
-            'content': "Diga qual é o tipo de gráfico que deve ser utilizado para representar os dados da tabela presente no pdf entre as seguintes opções: plot (gráfico de linha) ou bar. Em seguida, agrupe os dados da tabela em uma lista de listas. Exemplos: Ex1 - tabela contendo variações de preço de moedas de acordo com o tempo. Note que a primeira sub-lista apenas mostra qual será o dado que estará em cada index nas próximas sub-listas, que essa estrutura serve para a variação de qualquer tipo de variação de valores, não apenas preços e moedas, note também que a variação de tempo pode ser por anos, décadas,... e não meses, e por fim, note que podem haver mais ou menos produtos sendo analisados na tabela, e todos devem estar na lista. Resposta esperada para Ex1: Tipo de gráfico - plot; lista com os dados = [['Mês', 'Dólar', 'Euro'], ['Janeiro', 5.20, 6.10], ['Fevereiro', 5.18, 6.08], ['Março', 5.15, 6.05],['Abril', 5.10, 6.00], ['Maio', 5.05, 5.95], ['Junho', 5.00, 5.90], ['Julho', 4.95, 5.85], ['Agosto', 4.90, 5.80], ['Setembro', 4.85, 5.75], ['Outubro', 4.80, 5.70], ['Novembro', 4.75, 5.65], ['Dezembro',4.70, 5.60]]. Ex2 - Preços de produtos em lojas . Note que pode haver qualquer quantidade de produtos e todos devem estar na lista, note também que esse tipo de gráfico pode estar comparando também o mesmo produto em diferentes lojas, fazendo com que a lista fique da seguinte forma [['Loja', 'Valor'], ['Loja A', 100], ['Loja B', 150], ...], ou seja, nesse tipo de gráfico, o produto ou loja ao qual o preço faz referência ficará no eixo x enquanto o seu preço ficará no eixo y. Resposta esperada para Ex2: Tipo de gráfico - bar; lista com os dados = [['Mercadoria', 'Valor'], ['Produto A', 100], ['Produto B', 150], ...].",
+            'content': "Analise o conteúdo da tabela presente no PDF e diga se o conteúdo pode ser melhor representado por um gráfico de linha(plot) ou um gráfico de barras(bar). Caso a tabela apresente variação de algo ao longo do tempo, a resposta deve ser (plot). Caso contrário, a resposta deve ser (bar). Após isso, os dados da tabela devem ser agrupados em uma lista de listas, de forma que a primeira sublista sirva apenas para identificar o que aquela posição representará nas próximas sub-listas. Note que caso a tabela apresenta variação de algo ao longo do tempo, a lista deve seguir o formato de [['t', 'elemento_1', 'elemento_2', 'elemento_n'], ['t1', valor do elemento_1 em t1, valor do elemento_2 em t1, valor do elemento_n em t1]...] onde t representa o tempo/período referido, como por exemplo mês, ano, hora, século, etc, e os elementos são os objetos nos quais os valores variam ao longo desses tempos t.",
         }
     ]
 }
